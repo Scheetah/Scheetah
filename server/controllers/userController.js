@@ -1,4 +1,6 @@
 const User = require('../userModel');
+var async = require('asyncawait/async');
+var await = require('asyncawait/await');
 
 const userController = {
 
@@ -47,25 +49,67 @@ const userController = {
   //udpate the schema data
 
   //create Note
-  createNote(req, res) {
+  createNote (req, res) {
     console.log('creatingnote!')
     const { username, text, column} = req.body;
 
-    const filter = {username};
-    const update = {data: 'hello'};
-    User.findOneAndUpdate(filter,update, ((err, result) => {
-      if (err){
-        res.sendStatus(418)
-      } else {
-        res.sendStatus(200)
-      }
-    }));
-    
+
+    // let data = {
+    //   "text": text,
+    //   "column": column
+    // }
+    let data;
+    let update;
+    const person = User.findOne({username}, (err,res) => {
+      data = res.data;
+      // console.log("dataz" ,dataz)
+      // console.log(res.data)
+    }).then(() => {
+      data = data.concat({text, column})
+      console.log(data)
+    }).then(() => {
+      const filter = {username: username}
+      update = {"data": data}
+      User.findOneAndUpdate(filter, update, ((err, result) => {
+        if (err){
+          res.sendStatus(418)
+        } else {
+          res.sendStatus(200)
+        }
+      }))
+    })
+   
   },
 
   //delete Note
   deleteNote(req, res){
+    console.log('deleting!')
+    const { username, text, column} = req.body;
 
+    let dataz;
+
+    let filterData = []
+    User.findOne({username}, (err,res) => {
+      // let filterData = []
+      res.data.forEach((el) => {
+         if (el["text"] !== text){
+           filterData.push(el)
+         }
+       })
+    })
+
+    .then(() => {
+      const filter = {username: username}
+      update = {"data": filterData}
+      User.findOneAndUpdate(filter, update, ((err, result) => {
+        if (err){
+          res.sendStatus(418)
+        } else {
+          res.sendStatus(200)
+        }
+      }))
+    })
+    
   }
 }
 

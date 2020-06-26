@@ -35,7 +35,7 @@ userRouter.get('/:username', userController.getUser);
 userRouter.post('/createNote', userController.createNote);
 
 //delete note
-userRouter.delete('/deleteNote', userController.deleteNote);
+userRouter.post('/deleteNote', userController.deleteNote);
 
 app.use('/', userRouter);
 
