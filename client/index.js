@@ -3,5 +3,6 @@ import { render } from "react-dom";
 import App from "./App";
 
 import styles from "./styles.scss";
+import AppRouter from "./AppRouter";
 
-render(<App />, document.getElementById("root"));
+render(<AppRouter />, document.getElementById("root"));
