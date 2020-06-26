@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { Switch, Route, Link } from "react-router-dom";
+import Main from './Main.jsx';
 
 class Login extends Component {
   constructor() {
@@ -8,7 +9,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      data: []
+      data: [{column:'To Do', text: 'yerr'}]
     }
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangePassword= this.onChangePassword.bind(this);
@@ -69,22 +70,26 @@ class Login extends Component {
 
   render() {
     const cards=[];
+    
     for (let i = 0; i < this.state.data.length; i++) {
       
-      cards.push(this.state.data[i])
-      
+      console.log(this.state.data[i]);
+      // cards.push(<div><Main info=this.state.data[i]/></div>)      
     }
+         
     
-    {username, password, signup} = this.props;
     return (
       <div>
         <input type='text' onChange={this.onChangeUsername} />
         <input type='text' onChange={this.onChangePassword} />
         <button onClick={this.login}> </button>
-        <Link to='/Signup'>
-          <button onClick={this.signup}></button> 
-          {cards}
-        </Link> 
+        <button onClick={this.signup}></button> 
+        {cards}
+        <Link to='/Main'>
+          <button>TEST MAIN</button>
+        </Link>
+        
+  
         {/* <input type='text' />
         <input type='text' />
         <button> sign up</button>

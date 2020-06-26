@@ -11,30 +11,33 @@ class Main extends Component {
     this.state = {
       'storage': []
     }
-    this.setTier = this.setTier.bind(this)
-    this.reset = this.reset.bind(this)
+    // this.setTier = this.setTier.bind(this)
+    // this.reset = this.reset.bind(this)
   }
 
-  setColumn(sticky, colName){
-    const copy = this.state.storage
-    copy.map((el) => {
-      if (el.image === image){
-        el.tier = tier
-      }
-    })
-    this.setState(() => {
-      return{
-        storage: copy
-      }
-    })
-  }
+  // setColumn(sticky, colName){
+  //   const copy = this.state.storage
+  //   copy.map((el) => {
+  //     if (el.image === image){
+  //       el.tier = tier
+  //     }
+  //   })
+  //   this.setState(() => {
+  //     return{
+  //       storage: copy
+  //     }
+  //   })
+  // }
 
   render() {
+    console.log(this.props.data);
+    
     return (
       //where the board will render with all the sticky notes
       <div className='container'>
         <div className='header'></div>
         <h1>Hummingbird</h1>
+        <h1>This SHOULD SAY: {this.props.info.data.text}</h1>
         <div className='BoardBody'> </div>
         <Column name='To Do' />
         <Column name='In the Works' />
