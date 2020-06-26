@@ -37,7 +37,7 @@ class Main extends Component {
       <div className='container'>
         <div className='header'></div>
         <h1>Hummingbird</h1>
-        <h1>This SHOULD SAY: {this.props.info.data.text}</h1>
+        {/* <h1>This SHOULD SAY: {this.props.info.data.text}</h1> */}
         <div className='BoardBody'> </div>
         <Column name='To Do' />
         <Column name='In the Works' />
