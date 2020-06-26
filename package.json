@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack",
-    "dev": "webpack-dev-server --open "
+    "dev": "webpack-dev-server --open",
+    "startdev": "concurrently \"webpack-dev-server --open\"  \"nodemon server/server.js\""
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.1.0",
+    "concurrently": "^5.2.0",
     "cross-env": "^5.2.0",
     "css-loader": "^3.6.0",
     "nodemon": "^2.0.4",

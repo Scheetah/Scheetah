@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 
 const userRouter = express.Router()
 
-userRouter.post('/login', userController.createUser)
+userRouter.post('/signup', userController.createUser)
 userRouter.get('/:username', userController.getUser)
 
 app.use('/', userRouter);
