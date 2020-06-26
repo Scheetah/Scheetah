@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../index.html"));
 });
 
+// app.get('/Main', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/components/Main.jsx'));
+// });
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
