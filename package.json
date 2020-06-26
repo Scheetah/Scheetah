@@ -4,9 +4,10 @@
   "description": "solo project to do list",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack-dev-server --open & nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "build": "webpack",
+    "dev": "webpack-dev-server --open",
+    "startdev": "concurrently \"webpack-dev-server --open\"  \"nodemon server/server.js\""
   },
   "repository": {
     "type": "git",
@@ -23,13 +24,15 @@
     "express": "^4.12.3",
     "prop-types": "^15.6.1",
     "react": "^16.13.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.1.0",
+    "concurrently": "^5.2.0",
     "cross-env": "^5.2.0",
     "css-loader": "^3.6.0",
     "nodemon": "^2.0.4",
