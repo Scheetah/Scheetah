@@ -23,14 +23,19 @@ app.get("/", (req, res) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.post("/",  (req, res) => {
-//   res.sendFile(path.join(__dirname, "../index.html"));
-// });
-
 const userRouter = express.Router()
 
-userRouter.post('/signup', userController.createUser)
-userRouter.get('/:username', userController.getUser)
+// when user signs up, we create a user
+userRouter.post('/signup', userController.createUser);
+
+// verify user upon login
+userRouter.get('/:username', userController.getUser);
+
+//create note
+userRouter.post('/createNote', userController.createNote);
+
+//delete note
+userRouter.post('/deleteNote', userController.deleteNote);
 
 app.use('/', userRouter);
 
