@@ -3,7 +3,6 @@ import { render } from "react-dom";
 // import { render } from "sass";
 
 const CreateSticky = props => {
-  // {createInput, inputDone} = this.props;
   const [stickyNote, setStickyNote] = useState("");
 
   const handleChange = e => {
