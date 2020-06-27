@@ -31,20 +31,21 @@ const CreateSticky = props => {
         
   return (
     
-    
     <div>
-      <div
-        style={{
-          border: "solid 1px black",
-          height: "20px",
-          width: "200px",
-          backgroundColor: "yellow",
-        }}
-      >
-        <input type='text' style={{ border: "none", width: "50%" }} onChange={handleChange}></input>
-        <button onClick={onClick}>submit</button>
-      </div>
+    <div className='createSticky'>
+      <input type='text' onChange={handleChange}></input>
+      <button onClick={onClick}>submit</button>
     </div>
+  </div>
+    
+    // <div>
+    //   <div className="createSticky"
+     
+    //   >
+    //     <input type='text' style={{ border: "none", width: "50%" }} onChange={handleChange}></input>
+    //     <button onClick={onClick}>submit</button>
+    //   </div>
+    // </div>
   );
 };
 

@@ -1,12 +1,20 @@
-
 .footer {
     background-color: blueviolet;
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    height: 23vh;
 }
-
+.storage {
+    height: 200px; 
+    width: 200px; 
+    border: solid 1px; 
+    background-color: red;
+}
 .createSticky {
-    width: 300px;
+    border: solid 1px black;
+    height: 20px;
+    width: 200px;
+    // background-color: yellow;
 }

@@ -45,6 +45,9 @@ userRouter.post('/createNote', userController.createNote);
 //delete note
 userRouter.post('/deleteNote', userController.deleteNote);
 
+
+userRouter.post('/save', userController.save)
+
 app.use('/', userRouter);
 
 app.listen(3000);

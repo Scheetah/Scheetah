@@ -42,7 +42,7 @@ class Login extends Component {
     render(){
         return (
             <div>
-                <form className='instagram-login' onSubmit={this.onSubmit}>
+                <form className='signup' onSubmit={this.onSubmit}>
                     <div>
                         <label htmlFor="username"></label>
                         <input type="text" name="username" ref={this.usernameInput} className="username" placeholder='Phone number, username or email' />

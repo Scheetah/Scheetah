@@ -1,9 +1,33 @@
 
 .column {
-    
-    background-color: $background-color;
+    // background-color: black;
+    // background-color: white;
     width: $container-width;
-
     display: flex;
     justify-content: center;
+    min-height: 300px;
+    border-radius: 5px;
+    // border: 1px solid;
+    border-top: 5px solid #637870;
+}
+.sticky {
+    // border: solid; 
+    height: 200px; 
+    width: 7em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: black;
+    background-color: rgba(143, 165, 159, 0.61);
+    box-shadow: -7px 7px 5px 0px rgba(71,88,83, 0.75);
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+.stickyNote {
+    // border: solid; 
+    height: 180px; 
+    width: 200px;
+    margin-top: 5px;
+    color:darkgray;
 }

@@ -4,14 +4,20 @@
     flex-direction: row;
     justify-content: center;
     align-content: center;
-   
+    border: 1px solid;
+    background-color: black;
+    box-shadow: 0px 7px 2px 0px rgba(0,0,0,0.61);
 }
-
+.signup {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    margin-bottom: 5px;
+}
 img {
     height: $img-height;
     width: $img-width;
 }
-
 #flip {
     transform: scaleX(-1);
 }

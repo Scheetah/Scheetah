@@ -33,8 +33,10 @@ const Storage = props => {
   }) 
 
   return (
-    <div className='storage'>
-        <div ref={drop} style={{ height: '200px', width: '200px', border: 'solid 1px', backgroundColor: 'grey'}}>
+    // <div className='storage'>
+    //     <div ref={drop} style={{ height: '200px', width: '200px', border: 'solid 1px', backgroundColor: 'grey'}}>
+    <div>
+    <div className='storage' ref={drop}>
         {props.children}
         </div>
       {/* <Box  ref={drop} style={{backgroundColor: isOver ? "#ABABAB" : '#f5f5f1', borderRadius: 20, height: 300}}  w="100%" p={0} color="black"><h1 className='tests'>{props.children}</h1></Box> */}

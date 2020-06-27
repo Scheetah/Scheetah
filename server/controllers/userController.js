@@ -92,6 +92,31 @@ const userController = {
    
   },
 
+  save(req, res){
+    console.log('savingNotes!')
+    const {username, data} = req.body
+
+    let datas;
+
+    const person = User.findOne({username}, (err,res) => {
+      datas = res.data;
+     
+    }).then(() => {
+      datas = data
+      console.log('data: ', data);
+    }).then(() => {
+      const filter = {username: username}
+      update = {data: datas}
+      User.findOneAndUpdate(filter, update, ((err, result) => {
+        if (err){
+          res.sendStatus(418)
+        } else {
+          res.sendStatus(200)
+        }
+      }))
+    })
+  },
+
   //delete Note
   deleteNote(req, res){
     console.log('deleting!')
