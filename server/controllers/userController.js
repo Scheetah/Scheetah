@@ -64,7 +64,7 @@ const userController = {
     console.log('creatingnote!')
     const { username, text, column} = req.body;
 
-
+    // console.log(req.body)
     // let data = {
     //   "text": text,
     //   "column": column

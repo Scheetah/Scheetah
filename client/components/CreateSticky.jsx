@@ -9,7 +9,6 @@ const CreateSticky = props => {
     console.log(e.target.value, 'changed');
     setStickyNote(e.target.value);
     console.log(`stickyNote ${stickyNote}`);
-    
   };
   
   const onClick = e => {
@@ -18,7 +17,7 @@ const CreateSticky = props => {
 
     fetch(`./createNote`,{
           method: 'POST', 
-          body: JSON.stringify({column: 'Storage', text: stickyNote}),
+          body: JSON.stringify({username:'user1' , text: 'hello', column: 'To Do'}),
           headers: {
               'Content-Type': 'application/json',
           },
@@ -43,7 +42,7 @@ const CreateSticky = props => {
         }}
       >
         <input type='text' style={{ border: "none", width: "50%" }} onChange={handleChange}></input>
-        <button>submit</button>
+        <button onClick={onClick}>submit</button>
       </div>
     </div>
   );
