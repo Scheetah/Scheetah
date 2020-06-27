@@ -7,31 +7,38 @@ const CreateSticky = props => {
   const [stickyNote, setStickyNote] = useState("");
 
   const handleChange = e => {
-    useState(e.target.value);
+    console.log(e.target.value, 'changed');
+    setStickyNote(e.target.value);
+    console.log(`stickyNote ${stickyNote}`);
+    
   };
-
+  
   const onClick = e => {
-    fetch("/api/add", {
-      method: "POST",
-      body: JSON.stringify({ stickyNote }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        console.log(`remove data ${data}`);
-      })
-      .catch(err => console.log(`remove fetch error ${err}`));
-  };
+    
+    console.log(stickyNote);
 
+    fetch(`./createNote`,{
+          method: 'POST', 
+          body: JSON.stringify({column: 'Storage', text: stickyNote}),
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          }).then((res) => {
+            return res.json()
+          }).then((data)=> {
+            console.log(data);
+            return data;
+          }).catch(err => console.log(`createNote error ${err}`));
+        };
+        
   return (
+    
+    
     <div>
-      {/* <button></button> */}
       <div
         style={{
           border: "solid 1px black",
-          height: "200px",
+          height: "20px",
           width: "200px",
           backgroundColor: "yellow",
         }}

@@ -40,7 +40,7 @@ class Login extends Component {
       })
       .then(data => {
         // { column: 'todo', text: 'yerrrr'}
-        console.log(`data ${data}`);
+        // console.log(`data ${data}`);
         return this.setState({ 
           data: [{column: data.col, text: data.text}]
         });

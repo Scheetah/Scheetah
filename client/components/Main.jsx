@@ -4,6 +4,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Column from "./Column.jsx";
 import Sticky from './Sticky.jsx';
 import CreateSticky from './CreateSticky.jsx';
+import Storage from './storage.jsx';
 
 class Main extends Component {
 
@@ -123,9 +124,14 @@ class Main extends Component {
               <Sticky text={el.text} />
               ))}
           </Column>
+
         </div>
-          
         <div className='Footer'>
+          <Storage column='Storage' setColumn={this.setColumn}>
+            {this.state.data.filter((el) => el.column === 'Storage').map((el) => (
+              <Sticky text={el.text} />
+              ))}
+          </Storage>
           <CreateSticky />
           {/* {console.log(this.props.username)} */}
           <button>Logout</button>
