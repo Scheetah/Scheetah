@@ -9,7 +9,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      data: [{column:'To Do', text: 'yerr'}]
+      data: [],
     }
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangePassword= this.onChangePassword.bind(this);
@@ -68,24 +68,14 @@ class Login extends Component {
       .catch(err => console.log(`fetch error ${err}`));
   }
 
-  render() {
-    const cards=[];
-    
-    for (let i = 0; i < this.state.data.length; i++) {
-      
-      console.log(this.state.data[i]);
-      // cards.push(<div><Main info=this.state.data[i]/></div>)      
-    }
-         
-    
+  render() {       
     return (
       <div>
         <input type='text' onChange={this.onChangeUsername} />
         <input type='text' onChange={this.onChangePassword} />
-        <button onClick={this.login}> Login </button>
-        <button onClick={this.signup}>Signup</button> 
-        {cards}
-        <Link to='/Main'>
+        <button onClick={this.login}> </button>
+        <button onClick={this.signup}></button> 
+        <Link to='/Main'>      
           <button>TEST MAIN</button>
         </Link>
         
@@ -97,6 +87,15 @@ class Login extends Component {
           <button> login</button>
         </Link>
         <h1>yer</h1> */}
+
+{/* // const cards=[];
+    
+    // for (let i = 0; i < this.state.data.length; i++) {
+      
+    //   console.log(this.state.data[i]);
+    //   cards.push(this.state.data[i])      
+    // } */}
+
       </div>
     );
   }
