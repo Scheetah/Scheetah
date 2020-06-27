@@ -187,7 +187,7 @@ class Main extends Component {
               <Sticky text={el.text} />
               ))}
           </Storage>
-          <CreateSticky addSticky={this.addSticky} />
+          <CreateSticky username={this.props.username} addSticky={this.addSticky} />
           {/* {console.log(this.props.username)} */}
           <button onClick={this.fetchfiles} >Loading files</button>
         </div>
