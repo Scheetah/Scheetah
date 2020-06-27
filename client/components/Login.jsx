@@ -29,7 +29,7 @@ class Login extends Component {
   }
 
   login() {
-    fetch(`/api/login`, 
+    fetch('http://localhost:3000/login', 
     {
           method: "POST",
           body: JSON.stringify({username: this.state.username, password: this.state.password}),
@@ -49,7 +49,7 @@ class Login extends Component {
   }
 
   signup() {
-    fetch(`/api/signup`, 
+    fetch(`/signup`, 
     {
           method: "POST",
           body: JSON.stringify({username: this.state.username, password: this.state.password}),
@@ -82,8 +82,8 @@ class Login extends Component {
       <div>
         <input type='text' onChange={this.onChangeUsername} />
         <input type='text' onChange={this.onChangePassword} />
-        <button onClick={this.login}> </button>
-        <button onClick={this.signup}></button> 
+        <button onClick={this.login}> Login </button>
+        <button onClick={this.signup}>Signup</button> 
         {cards}
         <Link to='/Main'>
           <button>TEST MAIN</button>
