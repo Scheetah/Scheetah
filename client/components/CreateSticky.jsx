@@ -17,7 +17,7 @@ const CreateSticky = props => {
 
     fetch(`./createNote`,{
           method: 'POST', 
-          body: JSON.stringify({username:'user1' , text: 'hello', column: 'To Do'}),
+          body: JSON.stringify({username: props.username , text: stickyNote, column: 'Storage'}),
           headers: {
               'Content-Type': 'application/json',
           },
