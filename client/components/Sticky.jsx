@@ -1,27 +1,33 @@
 import React, { Component } from "react";
-// import { render } from "sass";
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
 
-class Sticky extends Component {
- 
+// BOX === STICKY
 
-  render() {
-    return <div></div>;
-  }
+const ItemTypes = {
+  STICKY:'sticky',
+}
+
+const Sticky = (props) => {
+  const [{isDragging}, drag] = useDrag({
+    item: {
+      type: ItemTypes.STICKY,
+      text: props.text
+    }, 
+    // end: (item, monitor) => {
+    //   const dropResult = monitor.getDropResult()
+    //   if (item && dropResult) {
+    //     alert(`You dropped ${item.name} into ${dropResult.name}!`)
+    //   },
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging()
+    })
+  })
+
+  return (
+    <span className='sticky'   ref={drag} style={{opacity: isDragging ? '0.5' : '1', border: "solid" }}>
+        <p>{props.text}</p>
+  </span>
+  ) 
 }
 
 export default Sticky;
-
-
-// fetch(`/api/add`, {
-//     method: "POST",
-//     body: JSON.stringify({}),
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then(res => {
-//       return res.json();
-//     })
-//     .then(data => {
-//       console.log(`remove data ${data}`);
-//     })
-//     .catch(err => console.log(`remove fetch error ${err}`));
-// }

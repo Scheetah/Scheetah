@@ -1,6 +1,4 @@
 const User = require('../userModel');
-var async = require('asyncawait/async');
-var await = require('asyncawait/await');
 
 const userController = {
 
@@ -13,6 +11,9 @@ const userController = {
       username,
       password,
     } = req.body;
+
+
+    
 
     User.create({
         username,
@@ -29,13 +30,23 @@ const userController = {
 
   getUser(req, res) {
     const user = req.params.username;
+    // const pass = req.body.password
+    
+  
+    // res.sendStatus(200)
 
     console.log(user)
     User.findOne({
         username: user
+      }, (err, result) => {
+        // console.log(result)
+        if (result === null){
+           res.sendStatus(418)
+        }
       })
       .then(data => res.status(201).json(data))
-      .catch(err => res.status(418).json({
+      .catch(err => 
+        res.status(418).json({
         error: 'Cannot find user by that name'
       }))
   },

@@ -3,11 +3,13 @@ const app = express();
 const path = require("path");
 const bodyParser = require('body-parser');
 const  mongoose  = require("mongoose");
+const cors = require('cors')
 
 const PORT = 3000;
 
 const userController = require('./controllers/userController')
 
+app.use(cors())
 
 mongoose.connect('mongodb+srv://win:winfordlin@users-jo7j2.mongodb.net/users?retryWrites=true&w=majority')
 mongoose.connection.once('open', () => {
@@ -30,7 +32,9 @@ app.use(bodyParser.json());
 const userRouter = express.Router()
 
 // when user signs up, we create a user
-userRouter.post('/signup', userController.createUser);
+userRouter.post('/signup', userController.createUser, (req, res)  => {
+  console.log('signingup!')
+});
 
 // verify user upon login
 userRouter.get('/:username', userController.getUser);
