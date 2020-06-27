@@ -24,6 +24,7 @@ class Main extends Component {
     }
     this.setColumn = this.setColumn.bind(this)
     this.reset = this.reset.bind(this)
+    this.fetchfiles = this.fetchfiles.bind(this)
   }
 
   // componentDidMount(){
@@ -64,6 +65,60 @@ class Main extends Component {
   //       // })
   //       // .catch(err => console.log(`fetch error ${err}`));
   // }
+
+  fetchfiles(){
+    fetch(`./${this.props.username}`,{
+          method: 'GET', 
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          }).then((res) => {
+            // console.log(data);
+            return res.json()
+          }).then((data)=> {
+            console.log('this is the res data:  *****', data.data)
+            console.log(this.state.data, data.data )
+            // if (this.state.data !== data.data){
+            //   this.setState({
+            //     data: data.data
+            //     // number: data
+            //   })
+            // }
+             this.setState({ 
+              data: data.data
+            })
+          })
+    
+      //       // .then(res => {
+      //       //   return res.json();
+      //       // })
+      //       // .then(data => {
+      //         // { column: 'todo', text: 'yerrrr'}
+      //       //   console.log(`data ${data}`);
+      //       // })
+      //       // .catch(err => console.log(`fetch error ${err}`));
+   
+  }
+
+  addSticky(){
+  //  fetch('/createNote')
+
+   fetch('/createNote', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+  }
 
   setColumn(text, column) {
     const copyOfData = this.state.data;
@@ -132,9 +187,9 @@ class Main extends Component {
               <Sticky text={el.text} />
               ))}
           </Storage>
-          <CreateSticky />
+          <CreateSticky addSticky={this.addSticky} />
           {/* {console.log(this.props.username)} */}
-          <button>Logout</button>
+          <button onClick={this.fetchfiles} >Loading files</button>
         </div>
       </div>
     );
