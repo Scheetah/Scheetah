@@ -1,6 +1,17 @@
 html {
-    background-color:yellow;
+    background-image: linear-gradient(to bottom, #475853, #446058,	#637870, #8fa59f, #afc2b5);
+    height: 100vh;
 }
-
+#react-toast {
+    display: none;
+}
+h1 {
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+p {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 24px;
+}
 
 

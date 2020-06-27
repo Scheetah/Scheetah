@@ -11,60 +11,54 @@ class Main extends Component {
   constructor(){
     super()
     this.state = {
-      data: [
-        {column:'To Do', text: 'yerr'},
-        {column:'In The Works', text: 'fdsf'},
-        {column:'Revising', text: 'fdf'},
-        {column:'Complete', text: 'yew4g5err'},
-        {column:'Complete', text: 'yew4g5er'},
-        {column:'Complete', text: 'yew4g5r'},
-        {column:'Complete', text: 'yew4gerr'},
-      ]
+      data: []
       // number: {}
     }
     this.setColumn = this.setColumn.bind(this)
     this.reset = this.reset.bind(this)
     this.fetchfiles = this.fetchfiles.bind(this)
+    this.saveData = this.saveData.bind(this)
   }
 
   // componentDidMount(){
   //   console.log(this.props.username)
   // }
 
-  
-  // componentDidUpdate() {
-   
-  //   fetch(`./${this.props.username}`,{
-  //     method: 'GET', 
-  //     headers: {
-  //         'Content-Type': 'application/json',
-  //     },
-  //     }).then((res) => {
-  //       // console.log(data);
-  //       return res.json()
-  //     }).then((data)=> {
-  //       console.log('this is the res data:  *****', data.data)
-  //       console.log(this.state.data, data.data )
-  //       // if (this.state.data !== data.data){
-  //       //   this.setState({
-  //       //     data: data.data
-  //       //     // number: data
-  //       //   })
-  //       // }
-  //       // return this.setState({ 
-  //       //   data: [{column: data.column, text: data.text}]
-  //       // })
-  //     })
+  componentDidUpdate() {
+    fetch(`./${this.props.username}`)
+      .then((res) => {
+        return res.json()
+      })
+      .then((data)=> {
+        if (this.state.data.length !== data.data.length){
+          return this.setState({
+            data: data.data
+          })
+        }
+      })
+  }
 
-  //       // .then(res => {
-  //       //   return res.json();
-  //       // })
-  //       // .then(data => {
-  //         // { column: 'todo', text: 'yerrrr'}
-  //       //   console.log(`data ${data}`);
-  //       // })
-  //       // .catch(err => console.log(`fetch error ${err}`));
-  // }
+  saveData() {
+    fetch('/save', {
+      method: 'POST', // or 'PUT'
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
+      body: JSON.stringify({ username: this.props.username, data: this.state.data }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      return this.setState({
+        data: data.data,
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+
+
 
   fetchfiles(){
     fetch(`./${this.props.username}`,{
@@ -152,10 +146,12 @@ class Main extends Component {
     return (
       //where the board will render with all the sticky notes
       <div className='columns-container'>
+      <button onClick={this.fetchfiles} >Loading files</button>
+      {/* <button  onClick={this.saveData}>Saving Progress</button> */}
         <div className='header'>
-          <img id='flip' src='../../assets/image/cheetah.svg' alt='logo'></img>
-          <h1>Cheetah</h1>
-          <img src='../../assets/image/cheetah.svg' alt='logo'></img>
+          <img  src='https://i.ibb.co/4RL4S8S/Screen-Shot-2020-06-26-at-5-02-09-PM-2.png' alt='logo'></img>
+          {/* <h1>Cheetah</h1>
+          <img src='../../assets/image/cheetah.svg' alt='logo'></img> */}
         </div>
         {/* <h1>This SHOULD SAY: {this.props.info.data.text}</h1> */}
         <div className='boardBody'> 
@@ -189,7 +185,7 @@ class Main extends Component {
           </Storage>
           <CreateSticky username={this.props.username} addSticky={this.addSticky} />
           {/* {console.log(this.props.username)} */}
-          <button onClick={this.fetchfiles} >Loading files</button>
+          
         </div>
       </div>
     );
