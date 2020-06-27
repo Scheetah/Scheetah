@@ -39,7 +39,7 @@ const userController = {
     User.findOne({
         username: user
       }, (err, result) => {
-        console.log(result)
+        // console.log(result)
         if (result === null){
            res.sendStatus(418)
         }

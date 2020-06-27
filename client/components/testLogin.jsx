@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Main from "./Main.jsx";
 
 class Login extends Component {
     constructor(props){
@@ -7,6 +8,10 @@ class Login extends Component {
 
         this.usernameInput = React.createRef();
         this.passwordInput = React.createRef();
+
+        this.state = {
+            username: ''
+        }
     }
 
     onSubmit (e){
@@ -28,7 +33,7 @@ class Login extends Component {
         headers: {
             'Content-Type': 'application/json',
         },
-        }).then((data) => {if (data.status === 201) {console.log(data, 'working!')}}) //redirect
+        }).then((data) => {if (data.status === 201) {this.setState({username: user})}}) //redirect
         .catch((error) => {
         console.error('Error:', error);
         });
@@ -48,6 +53,7 @@ class Login extends Component {
                     </div>
                     <button type="submit">Log In</button>    
                 </form>
+                <Main username={this.state.username}/>
             </div>
         )
     }

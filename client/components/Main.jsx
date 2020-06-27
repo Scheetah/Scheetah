@@ -15,27 +15,53 @@ class Main extends Component {
         {column:'In The Works', text: 'fdsf'},
         {column:'Revising', text: 'fdf'},
         {column:'Complete', text: 'yew4g5err'},
-        {column:'Complete', text: 'yew4g5err'},
-        {column:'Complete', text: 'yew4g5err'},
-        {column:'Complete', text: 'yew4g5err'},
+        {column:'Complete', text: 'yew4g5er'},
+        {column:'Complete', text: 'yew4g5r'},
+        {column:'Complete', text: 'yew4gerr'},
       ]
+      // number: {}
     }
     this.setColumn = this.setColumn.bind(this)
     this.reset = this.reset.bind(this)
   }
-  // componentDidMount() {
-  //   fetch('/api/get')
-  //       .then(res => {
-  //         return res.json();
-  //       })
-  //       .then(data => {
+
+  // componentDidMount(){
+  //   console.log(this.props.username)
+  // }
+
+  
+  // componentDidUpdate() {
+   
+  //   fetch(`./${this.props.username}`,{
+  //     method: 'GET', 
+  //     headers: {
+  //         'Content-Type': 'application/json',
+  //     },
+  //     }).then((res) => {
+  //       // console.log(data);
+  //       return res.json()
+  //     }).then((data)=> {
+  //       console.log('this is the res data:  *****', data.data)
+  //       console.log(this.state.data, data.data )
+  //       // if (this.state.data !== data.data){
+  //       //   this.setState({
+  //       //     data: data.data
+  //       //     // number: data
+  //       //   })
+  //       // }
+  //       // return this.setState({ 
+  //       //   data: [{column: data.column, text: data.text}]
+  //       // })
+  //     })
+
+  //       // .then(res => {
+  //       //   return res.json();
+  //       // })
+  //       // .then(data => {
   //         // { column: 'todo', text: 'yerrrr'}
-  //         console.log(`data ${data}`);
-  //         return this.setState({ 
-  //           data: [{column: data.column, text: data.text}]
-  //         })
-  //       })
-  //       .catch(err => console.log(`fetch error ${err}`));
+  //       //   console.log(`data ${data}`);
+  //       // })
+  //       // .catch(err => console.log(`fetch error ${err}`));
   // }
 
   setColumn(text, column) {
@@ -65,8 +91,8 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.props.data);
-    
+   console.log(this.state.data,'state!')
+   
     return (
       //where the board will render with all the sticky notes
       <div className='columns-container'>
@@ -99,6 +125,7 @@ class Main extends Component {
           
         <div className='Footer'>
           <CreateSticky />
+          {/* {console.log(this.props.username)} */}
           <button>Logout</button>
         </div>
       </div>

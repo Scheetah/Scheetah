@@ -3237,14 +3237,6 @@
       "requires": {
         "object-assign": "^4",
         "vary": "^1"
-      }
-    },
-      }
-    },
-      }
-    },
-      }
-    },
     "cosmiconfig": {
       "version": "6.0.0",
       "resolved": "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-6.0.0.tgz",
