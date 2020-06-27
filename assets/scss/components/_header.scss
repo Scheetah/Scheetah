@@ -1,0 +1,17 @@
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+   
+}
+
+img {
+    height: $img-height;
+    width: $img-width;
+}
+
+#flip {
+    transform: scaleX(-1);
+}

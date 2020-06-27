@@ -97,10 +97,12 @@ class Main extends Component {
       //where the board will render with all the sticky notes
       <div className='columns-container'>
         <div className='header'>
-          <h1>SCheetah</h1>
+          <img id='flip' src='../../assets/image/cheetah.svg' alt='logo'></img>
+          <h1>Cheetah</h1>
+          <img src='../../assets/image/cheetah.svg' alt='logo'></img>
         </div>
         {/* <h1>This SHOULD SAY: {this.props.info.data.text}</h1> */}
-        <div className='BoardBody'> 
+        <div className='boardBody'> 
           <Column column='To Do' setColumn={this.setColumn}>
             {this.state.data.filter((el) => el.column === 'To Do').map((el) => (
               <Sticky text={el.text} />

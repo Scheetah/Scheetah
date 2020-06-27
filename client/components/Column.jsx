@@ -4,6 +4,15 @@ import Sticky from "./Sticky.jsx";
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import  { Box } from '@chakra-ui/core';
 
+
+class Column extends Component {
+  render() {
+    return (
+      <div className= "column">
+        <h1>{this.props.name}</h1>
+        <Sticky />
+        {/* have to figure out how to get all the sticky notes for the exact column using the data key: column. the value is the column name */}
+=======
 const ItemTypes = {
   STICKY:'sticky',
 }
@@ -28,6 +37,7 @@ const Column = (props) => {
         <h1>{props.column}</h1>
         <Box className='box' ref={drop} style={{backgroundColor: isOver ? "#ABABAB" : '#f5f5f1'}}  w="20%" p={2} color="black"><h1 className='test'> {props.children}</h1>
         </Box>
+
       </div>
     </div>
   );
