@@ -35,17 +35,26 @@ class Main extends Component {
     return (
       //where the board will render with all the sticky notes
       <div className='container'>
-        <div className='header'></div>
-        <h1>Hummingbird</h1>
+        
+        <div className='header'>
+          <img id='flip' src='../../assets/image/cheetah.svg' alt='logo'></img>
+          <h1>Hummingbird</h1>
+          <img src='../../assets/image/cheetah.svg' alt='logo'></img>
+        </div>
         {/* <h1>This SHOULD SAY: {this.props.info.data.text}</h1> */}
-        <div className='BoardBody'> </div>
-        <Column name='To Do' />
-        <Column name='In the Works' />
-        <Column name='Revising' />
-        <Column name='Complete' />
-        <div className='Footer'></div>
-        <CreateSticky />
-        <button>Logout</button>
+        
+        <div className='boardBody'> 
+          <Column name='To Do' />
+          <Column name='In the Works' />
+          <Column name='Revising' />
+          <Column name='Complete' />
+        </div>
+
+        <div className='footer'>
+          <CreateSticky className='createSticky' />
+          <button>Logout</button>
+        </div>
+
       </div>
     );
   }
