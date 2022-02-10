@@ -28,7 +28,7 @@
     "emotion-theming": "^10.0.27",
     "express": "^4.12.3",
     "mongoose": "^5.9.20",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.13.1",
     "react-dnd": "^11.1.3",
